@@ -31,7 +31,11 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] **I. Textbook Topic Adherence**: All plans must ensure strict adherence to the defined textbook topics in content generation and specifications.
+- [ ] **II. RAG Content Origin**: Design for RAG systems must ensure content exclusively originates from textbook chapters.
+- [ ] **III. Modular and Clean Architecture**: All architectural designs must prioritize modularity, clean code, and strict type checking.
+- [ ] **IV. Structured Educational Design**: Content planning must incorporate structured educational design principles, including logical flow and clear objectives.
+- [ ] **V. Documented and Testable Endpoints**: Any API endpoint design must include documentation specifications and a plan for comprehensive testing.
 
 ## Project Structure
 

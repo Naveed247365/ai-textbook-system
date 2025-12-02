@@ -82,6 +82,14 @@
   Fill them out with the right functional requirements.
 -->
 
+### Constitution-Derived Requirements
+
+- **CR-001 (Textbook Topic Adherence)**: All feature specifications MUST strictly adhere to the "Textbook Topics" defined in the project constitution.
+- **CR-002 (RAG Content Origin)**: Any RAG-related features MUST be designed such that answers exclusively originate from the textbook chapter content.
+- **CR-003 (Modular and Clean Architecture)**: Features requiring new architectural components MUST comply with modular design principles, clean code practices, and strict type checking.
+- **CR-004 (Structured Educational Design)**: All content generation features MUST ensure the output conforms to a structured educational design, including logical flow, clear learning objectives, and consistent formatting.
+- **CR-005 (Documented and Testable Endpoints)**: Any new API endpoints introduced by this feature MUST be fully documented and designed for comprehensive testing.
+
 ### Functional Requirements
 
 - **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]

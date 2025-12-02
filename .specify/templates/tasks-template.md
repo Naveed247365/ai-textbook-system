@@ -44,6 +44,14 @@ description: "Task list template for feature implementation"
   ============================================================================
 -->
 
+## Constitution Compliance Checklist for Tasks
+
+- [ ] **Textbook Topic Adherence**: Ensure all content-related tasks strictly align with the approved textbook topics.
+- [ ] **RAG Content Origin**: Verify RAG implementation tasks enforce content sourcing exclusively from textbook chapters.
+- [ ] **Modular and Clean Architecture**: Confirm tasks for new components promote modularity, clean code, and typed interfaces.
+- [ ] **Structured Educational Design**: Validate content generation tasks include steps for structured educational design and pedagogical consistency.
+- [ ] **Documented and Testable Endpoints**: Ensure API tasks include comprehensive documentation and robust testing.
+
 ## Phase 1: Setup (Shared Infrastructure)
 
 **Purpose**: Project initialization and basic structure
