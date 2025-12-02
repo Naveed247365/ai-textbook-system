@@ -1,55 +1,79 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: Initial -> 1.0.0
+- Modified principles: All principles defined from user input.
+- Added sections: "Textbook Topics", "System Goals", "Tech Stack".
+- Removed sections: None.
+- Templates requiring updates:
+    - .specify/templates/plan-template.md (⚠ pending)
+    - .specify/templates/spec-template.md (⚠ pending)
+    - .specify/templates/tasks-template.md (⚠ pending)
+    - .specify/templates/commands/*.md (⚠ pending)
+- Follow-up TODOs: None.
+-->
+# Physical AI & Humanoid Robotics Textbook System Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Textbook Topic Adherence
+The project must follow the exact topics listed in the "Textbook Topics" section below. All specifications and content generation must strictly adhere to this defined list.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. RAG Content Origin
+RAG answers MUST exclusively originate from the content within the textbook chapters. No external sources or generalized LLM knowledge should be used for RAG responses.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Modular and Clean Architecture
+The system architecture must be modular, promote clean code practices, and utilize strict type checking. This ensures maintainability, scalability, and clarity across the codebase.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Structured Educational Design
+All book content must conform to a structured educational design. This includes logical flow, clear learning objectives, appropriate pedagogical approaches, and consistent formatting.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Documented and Testable Endpoints
+Every API endpoint developed for this system must be thoroughly documented, detailing inputs, outputs, and error conditions. Furthermore, each endpoint must be accompanied by comprehensive and passing tests to ensure functionality and reliability.
 
-### [PRINCIPLE_6_NAME]
+## Textbook Topics
 
+The following topics must be fully included in all specifications and content generation for the "Physical AI & Humanoid Robotics Textbook System":
 
-[PRINCIPLE__DESCRIPTION]
+1.  Foundations of Physical AI
+2.  Robotics Fundamentals
+3.  Sensors & Actuators
+4.  ROS2 Essentials
+5.  Gazebo Simulation
+6.  NVIDIA Isaac Sim
+7.  Perception & Vision
+8.  Vision-Language-Action (VLA) Models
+9.  Machine Learning for Robotics
+10. Humanoid Robotics
+11. Jetson Edge Deployment
+12. AI Agents for Robotics
+13. Hands-on Labs
+14. Quizzes & Assessments
+15. Urdu Translation Layer
+16. Personalization Layer
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## System Goals
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+The "Physical AI & Humanoid Robotics Textbook System" aims to achieve the following:
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+-   Auto-generate a full Docusaurus textbook based on the specified topics.
+-   Integrate a RAG chatbot linked exclusively to all book chapters.
+-   Implement a "Select Text → Ask AI" feature within textbook chapters.
+-   Provide personalized chapter difficulty adjustment capabilities.
+-   Offer an Urdu translation toggle for all content.
+-   Incorporate specialized subagents for quiz generation, lab generation, and code explanation.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Tech Stack
+
+The following technology stack will be utilized for the project:
+
+-   Frontend: Docusaurus
+-   Backend: FastAPI
+-   Vector DB: Qdrant
+-   DB: Neon Postgres
+-   Auth: Better-Auth
+-   LLMs: Gemini
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This Constitution supersedes all other project practices and documentation. Any amendments to this Constitution require a formal review process, documentation of rationale, and an approved migration plan for any affected systems or processes. Compliance with these principles must be verified in all Pull Requests and code reviews. Any increase in complexity must be explicitly justified against the principle of simplicity.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-02 | **Last Amended**: 2025-12-02
