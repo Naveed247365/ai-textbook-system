@@ -16,19 +16,19 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy only requirements first for better caching
-COPY ./backend/requirements-deploy.txt /app/requirements.txt
+COPY backend/requirements-deploy.txt /app/backend/requirements-deploy.txt
 
 # Install Python dependencies
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+RUN mkdir -p /app/backend && \
+    pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r /app/backend/requirements-deploy.txt
 
-# Copy only the backend directory (not the entire project)
-WORKDIR /app/backend
-COPY ./backend/requirements-deploy.txt ./requirements.txt
-COPY ./backend/src ./src
+# Copy only the backend source (not the entire project)
+WORKDIR /app
+COPY backend/src ./backend/src
 
 # Expose port
 EXPOSE $PORT
 
 # Run the application
-CMD ["sh", "-c", "python -m uvicorn src.main:app --host=0.0.0.0 --port $PORT"]
+CMD ["sh", "-c", "python -m uvicorn backend.src.main:app --host=0.0.0.0 --port $PORT"]
