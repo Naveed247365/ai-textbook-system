@@ -34,5 +34,8 @@ COPY railway_start.py /app/railway_start.py
 # Expose port
 EXPOSE $PORT
 
-# Run the application
-CMD ["python", "/app/railway_start.py"]
+# Create a simple shell script to run the application
+RUN echo '#!/bin/bash\nset -e\npython /app/railway_start.py' > /app/start.sh && chmod +x /app/start.sh
+
+# Run the application using the shell script
+ENTRYPOINT ["/app/start.sh"]
