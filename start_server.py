@@ -6,7 +6,6 @@ This script provides better error handling and logging for production deployment
 import os
 import sys
 import logging
-from pathlib import Path
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -15,14 +14,28 @@ logger = logging.getLogger(__name__)
 def main():
     """Start the FastAPI application using uvicorn with proper error handling"""
     try:
-        # Add the project root directory to the Python path
-        project_root = Path(__file__).parent
-        backend_src = project_root / "backend" / "src"
-        sys.path.insert(0, str(project_root))
-        sys.path.insert(0, str(backend_src))
+        # Add the project root and backend source to the Python path
+        # In the Docker container, we're in /app directory
+        sys.path.insert(0, "/app")
+        sys.path.insert(0, "/app/backend/src")
 
         logger.info("Starting Physical AI & Humanoid Robotics Textbook System...")
+        logger.info(f"Current working directory: {os.getcwd()}")
         logger.info(f"Python path: {sys.path[:3]}...")  # Show first few paths
+
+        # List files in the current directory and backend/src for debugging
+        import subprocess
+        try:
+            result = subprocess.run(['ls', '-la'], capture_output=True, text=True)
+            logger.info(f"Files in /app: {result.stdout}")
+        except:
+            logger.info("Could not list files in /app")
+
+        try:
+            result = subprocess.run(['ls', '-la', '/app/backend/src'], capture_output=True, text=True)
+            logger.info(f"Files in /app/backend/src: {result.stdout}")
+        except:
+            logger.info("Could not list files in /app/backend/src")
 
         # Get port from environment or default to 8000
         port = int(os.environ.get("PORT", 8000))
@@ -38,8 +51,10 @@ def main():
 
         # Import and start the application
         import uvicorn
-        from backend.src.main import app
+        logger.info("Attempting to import backend.src.main...")
 
+        # Import the application
+        from backend.src.main import app
         logger.info("Application imported successfully, starting server...")
 
         # Start the application
@@ -49,16 +64,14 @@ def main():
             port=port,
             reload=False,  # Disable reload in production
             log_level="info",
-            timeout_keep_alive=30  # Increase keep-alive timeout
+            timeout_keep_alive=30,  # Increase keep-alive timeout
+            access_log=True
         )
 
     except ImportError as e:
         logger.error(f"Import error: {e}")
-        logger.error("Available modules in backend/src:")
-        backend_src = Path(__file__).parent / "backend" / "src"
-        if backend_src.exists():
-            for py_file in backend_src.glob("*.py"):
-                logger.error(f"  - {py_file.name}")
+        import traceback
+        traceback.print_exc()
         sys.exit(1)
     except Exception as e:
         logger.error(f"Application startup error: {e}")
