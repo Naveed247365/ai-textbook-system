@@ -7,13 +7,13 @@ import logging
 # Add the project root directory to the Python path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-# Initialize services at startup
-from src.translation_service import translation_cache, translation_service
+# Initialize services - delay heavy initialization
 from src.rag_service import RAGService
 
 # Import auth utilities to ensure JWT dependencies are available
 from src.auth_utils import SECRET_KEY, ALGORITHM
 
+# Initialize RAG service but without loading heavy models
 rag_service = RAGService()
 
 @asynccontextmanager

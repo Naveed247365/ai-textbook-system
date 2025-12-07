@@ -4,7 +4,7 @@ FROM python:3.10-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV PYTHONPATH=/app:/app/backend:/app/backend/src
+ENV PYTHONPATH=/app
 
 # Set work directory
 WORKDIR /app
