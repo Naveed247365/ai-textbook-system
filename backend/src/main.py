@@ -11,6 +11,9 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from src.translation_service import translation_cache, translation_service
 from src.rag_service import RAGService
 
+# Import auth utilities to ensure JWT dependencies are available
+from src.auth_utils import SECRET_KEY, ALGORITHM
+
 rag_service = RAGService()
 
 @asynccontextmanager

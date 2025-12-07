@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Optional
@@ -53,7 +54,7 @@ class TranslationCache:
         """Initialize database connection to Neon/Postgres"""
         try:
             # In a real implementation, these would come from environment variables
-            db_url = os.getenv("NEON_DATABASE_URL", "postgresql://username:password@localhost:5432/dbname")
+            db_url = os.getenv("DATABASE_URL", "postgresql://username:password@localhost:5432/dbname")
             self.connection_pool = await asyncpg.create_pool(dsn=db_url)
 
             # Create table if it doesn't exist

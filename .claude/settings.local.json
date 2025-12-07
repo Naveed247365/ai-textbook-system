@@ -77,7 +77,10 @@
       "Bash(cat Procfile)",
       "Bash(cat /mnt/e/ai_textbook/Procfile)",
       "Bash(echo \"web: pip install -r backend/requirements.txt && python -m uvicorn backend.src.main:app --host=0.0.0.0 --port=$PORT\")",
-      "Bash(echo \"web: pip install -r backend/requirements-deploy.txt && python -m uvicorn backend.src.main:app --host=0.0.0.0 --port=$PORT\")"
+      "Bash(echo \"web: pip install -r backend/requirements-deploy.txt && python -m uvicorn backend.src.main:app --host=0.0.0.0 --port=$PORT\")",
+      "Bash(find backend/src -name \"*.py\" -exec grep -l \"SECRET_KEY\\|jwt\\|python-jose\" {} ;)",
+      "Bash(python -c \"from src.main import app; print(''Application imports successfully'')\")",
+      "Bash(python3 -c \"from src.main import app; print(''Application imports successfully'')\")"
     ],
     "deny": [],
     "ask": []
