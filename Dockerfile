@@ -27,8 +27,11 @@ RUN mkdir -p /app/backend && \
 # Copy only the backend source (not the entire project)
 COPY backend/src ./backend/src
 
+# Copy the startup script
+COPY start_server.py /app/start_server.py
+
 # Expose port
 EXPOSE $PORT
 
 # Run the application
-CMD ["python", "-m", "uvicorn", "backend.src.main:app", "--host", "0.0.0.0", "--port", "$PORT"]
+CMD ["python", "/app/start_server.py"]
