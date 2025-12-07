@@ -9,22 +9,36 @@ from .ai_adapters import translation_adapter_manager
 
 class RAGService:
     """Retrieval-Augmented Generation service supporting multiple languages and difficulty levels"""
-    
+
     def __init__(self):
-        # Initialize Qdrant client
+        # Store Qdrant URL for lazy initialization to avoid startup issues
         qdrant_url = os.getenv("QDRANT_URL", "http://localhost:6333")
-        self.qdrant_client = AsyncQdrantClient(url=qdrant_url)
-        
+        self._qdrant_url = qdrant_url
+        self._qdrant_client = None  # Initialize lazily
+
         # Initialize embedding model
-        self.tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
-        self.model = AutoModel.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
-        
+        try:
+            self.tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
+            self.model = AutoModel.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
+        except Exception as e:
+            logging.error(f"Failed to initialize embedding models: {e}")
+            # In production, you might want to handle this differently
+            raise
+
         # Language and difficulty settings
         self.current_language = "en"  # Default to English
         self.current_difficulty = "beginner"  # Default to beginner
-        
+
         # Translation adapter
         self.translation_manager = translation_adapter_manager
+
+    @property
+    def qdrant_client(self):
+        """Lazy initialization of Qdrant client to avoid startup issues"""
+        if self._qdrant_client is None:
+            from qdrant_client import AsyncQdrantClient
+            self._qdrant_client = AsyncQdrantClient(url=self._qdrant_url)
+        return self._qdrant_client
     
     async def set_user_preferences(self, language: str = "en", difficulty: str = "beginner"):
         """Set the current language and difficulty level for RAG responses"""

@@ -20,8 +20,14 @@ rag_service = RAGService()
 async def lifespan(app: FastAPI):
     # Startup
     logging.info("Initializing backend services...")
-    await translation_cache.initialize_db()
-    logging.info("Backend services initialized")
+    try:
+        await translation_cache.initialize_db()
+        logging.info("Backend services initialized")
+    except Exception as e:
+        logging.error(f"Error initializing backend services: {e}")
+        # Continue startup even if cache initialization fails
+        # The app can still function with in-memory cache fallback
+        logging.info("Continuing startup with fallback cache mechanism")
     yield
     # Shutdown
     logging.info("Shutting down backend services...")
