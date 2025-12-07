@@ -4,7 +4,7 @@ FROM python:3.10-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV PYTHONPATH=/app
+ENV PYTHONPATH=/app:/app/backend:/app/backend/src
 
 # Set work directory
 WORKDIR /app
@@ -27,11 +27,12 @@ RUN mkdir -p /app/backend && \
 # Copy only the backend source (not the entire project)
 COPY backend/src ./backend/src
 
-# Copy the startup script
+# Copy the startup scripts
 COPY start_server.py /app/start_server.py
+COPY railway_start.py /app/railway_start.py
 
 # Expose port
 EXPOSE $PORT
 
 # Run the application
-CMD ["python", "/app/start_server.py"]
+CMD ["python", "/app/railway_start.py"]
