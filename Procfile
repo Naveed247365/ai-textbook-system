@@ -1,1 +1,1 @@
-web: pip install -r backend/requirements-deploy.txt && python start_server.py
+web: cd backend && pip install -r requirements-deploy.txt && python -c "from src.main import app; import uvicorn; import os; port=int(os.environ.get('PORT', 8000)); uvicorn.run(app, host='0.0.0.0', port=port)"

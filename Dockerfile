@@ -27,12 +27,11 @@ RUN mkdir -p /app/backend && \
 # Copy only the backend source (not the entire project)
 COPY backend/src ./backend/src
 
-# Copy the startup scripts
+# Copy the startup script
 COPY start_server.py /app/start_server.py
-COPY debug_server.py /app/debug_server.py
 
 # Expose port
 EXPOSE $PORT
 
-# Run the application - using debug server temporarily to identify startup issues
-CMD ["python", "/app/debug_server.py"]
+# Run the application
+CMD ["python", "/app/start_server.py"]
