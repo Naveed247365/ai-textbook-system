@@ -1,0 +1,302 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--robotics-light) 0%, #e6f0ff 100%);
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 102, 204, 0.1);
+  background-image: radial-gradient(circle at 10% 20%, rgba(0, 201, 167, 0.05) 0%, transparent 20%),
+                    radial-gradient(circle at 90% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 20%);
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .heroBanner {
+    padding: 1.5rem 0;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 996px) {
+  .buttons {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .buttons {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .buttons .button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .buttons .languageToggle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .buttons .languageToggle > div {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttons .languageToggle > div > button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .buttons .languageToggle > div > button:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 996px) {
+  .heroTitle {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 996px) {
+  .heroSubtitle {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+}
+
+.heroImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.heroImage {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.heroImage:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 996px) {
+  .heroImage {
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .heroImage {
+    max-height: 200px;
+  }
+}
+
+.newsletter {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, var(--robotics-blue) 0%, #1c3a6b 100%);
+  background-color: var(--robotics-blue);
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+@media screen and (max-width: 996px) {
+  .newsletter {
+    padding: 3rem 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .newsletter {
+    padding: 2rem 1rem;
+  }
+}
+
+.newsletterTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+}
+
+@media screen and (max-width: 576px) {
+  .newsletterTitle {
+    font-size: 1.7rem;
+  }
+}
+
+.newsletterSubtitle {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  color: var(--ifm-font-color-base);
+}
+
+@media screen and (max-width: 576px) {
+  .newsletterSubtitle {
+    font-size: 1rem;
+  }
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .newsletterForm {
+    flex-direction: column;
+  }
+}
+
+.newsletterInput {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  min-width: 300px;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.newsletterInput::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+  .newsletterInput {
+    min-width: 100%;
+    margin-bottom: 0.5rem;
+    min-width: auto; /* Override min-width on small screens */
+  }
+}
+
+/* Style updates for features section */
+.features {
+  padding: 4rem 0;
+  background-color: white;
+}
+
+@media screen and (max-width: 996px) {
+  .features {
+    padding: 3rem 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .features {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Mobile-first responsive adjustments */
+@media (max-width: 996px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .row {
+    margin: 0 -0.5rem;
+  }
+
+  .col {
+    padding: 0 0.5rem;
+  }
+}
+
+/* For dark mode */
+html[data-theme='dark'] .heroBanner {
+  background: linear-gradient(135deg, var(--robotics-dark) 0%, #0c1825 100%);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme='dark'] .newsletter {
+  background: linear-gradient(135deg, #1a365d 0%, #0f1b3a 100%);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme='dark'] .features {
+  background: linear-gradient(to bottom, var(--robotics-dark) 0%, #0f172a 100%);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Specific text colors */
+html[data-theme='dark'] .newsletterTitle,
+html[data-theme='dark'] .newsletterSubtitle {
+  color: rgba(255, 255, 255, 0.9);
+}

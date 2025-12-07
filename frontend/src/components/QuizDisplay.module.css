@@ -1,0 +1,42 @@
+.quizCard {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-button-border-radius);
+  padding: 1.5rem;
+}
+
+.questionText {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.optionLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.optionLabel input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.feedback {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: var(--ifm-button-border-radius);
+}
+
+.feedback.correct {
+  background-color: var(--ifm-color-success-light);
+  color: var(--ifm-color-success-darkest);
+}
+
+.feedback.incorrect {
+  background-color: var(--ifm-color-danger-light);
+  color: var(--ifm-color-danger-darkest);
+}
+
+.quizButton {
+  margin-top: 1.5rem;
+  margin-right: 1rem;
+}

@@ -1,0 +1,198 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #0066cc; /* Deep blue representing technology */
+  --ifm-color-primary-dark: #0059b3;
+  --ifm-color-primary-darker: #0052a6;
+  --ifm-color-primary-darkest: #00448a;
+  --ifm-color-primary-light: #1a75d6;
+  --ifm-color-primary-lighter: #2d80dd;
+  --ifm-color-primary-lightest: #4d93e6;
+  --ifm-color-secondary: #ff6b35; /* Orange for energy/robotics */
+  --ifm-color-accent: #00c9a7; /* Teal for innovation */
+  --ifm-color-tertiary: #f8f9fa; /* Light background */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 102, 204, 0.15);
+  --ifm-card-background-color: #ffffff;
+  --ifm-card-border-radius: 12px;
+  --ifm-card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Additional colors for robotics theme */
+:root {
+  --robotics-blue: #1a365d;
+  --robotics-teal: #00c9a7;
+  --robotics-orange: #ff6b35;
+  --robotics-gray: #4a5568;
+  --robotics-light: #f0f9ff;
+  --robotics-dark: #0f172a;
+}
+
+/* Custom styles for buttons */
+.button.button--secondary.button--lg {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--robotics-teal) 0%, var(--robotics-orange) 100%);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 201, 167, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.button.button--secondary.button--lg:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 201, 167, 0.4);
+}
+
+.button.button--secondary.button--lg::after {
+  content: ' →'; /* Right arrow character */
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.button.button--secondary.button--lg:hover::after {
+  transform: translateX(5px);
+}
+
+/* Add subtle animation effect */
+.button.button--secondary.button--lg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.8s;
+}
+
+.button.button--secondary.button--lg:hover::before {
+  left: 100%;
+}
+
+/* Update secondary button for newsletter */
+.button.button--primary {
+  background: linear-gradient(135deg, var(--robotics-teal) 0%, var(--robotics-orange) 100%);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 201, 167, 0.3);
+}
+
+.button.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 201, 167, 0.4);
+}
+
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #4da0ff; /* Light blue */
+  --ifm-color-primary-dark: #3a8aec;
+  --ifm-color-primary-darker: #3581e0;
+  --ifm-color-primary-darkest: #2b6ccc;
+  --ifm-color-primary-light: #68aef0;
+  --ifm-color-primary-lighter: #7ab7f2;
+  --ifm-color-primary-lightest: #a0c9f5;
+  --ifm-color-secondary: #ff8c5a; /* Lighter orange */
+  --ifm-color-accent: #00e0bb; /* Lighter teal */
+  --ifm-color-tertiary: #1e293b; /* Darker background */
+  --ifm-card-background-color: #1e293b;
+  --docusaurus-highlighted-code-line-bg: rgba(77, 160, 255, 0.2);
+}
+
+/* Dark mode robotics theme */
+[data-theme='dark'] {
+  --robotics-blue: #334155;
+  --robotics-teal: #0fd1b8;
+  --robotics-orange: #ff8c5a;
+  --robotics-gray: #94a3b8;
+  --robotics-light: #1e293b;
+  --robotics-dark: #0c1825;
+}
+
+/* Navbar enhancements */
+.navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+}
+
+html[data-theme='dark'] .navbar {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-bottom: 1px solid rgba(77, 160, 255, 0.1);
+}
+
+/* Enhanced card styling */
+.card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 102, 204, 0.1);
+  border-radius: var(--ifm-card-border-radius);
+  box-shadow: var(--ifm-card-shadow);
+  color: var(--ifm-font-color-base);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Text color enhancements for better contrast */
+html[data-theme='dark'] {
+  --ifm-font-color-base: rgba(255, 255, 255, 0.9);
+  --ifm-font-color-base-inverse: rgba(255, 255, 255, 0.7);
+  --ifm-color-content: rgba(255, 255, 255, 0.9);
+  --ifm-color-content-secondary: rgba(255, 255, 255, 0.7);
+}
+
+html[data-theme='light'] {
+  --ifm-font-color-base: rgba(15, 23, 42, 0.95);
+  --ifm-font-color-base-inverse: rgba(15, 23, 42, 0.7);
+  --ifm-color-content: rgba(15, 23, 42, 0.95);
+  --ifm-color-content-secondary: rgba(15, 23, 42, 0.7);
+}
+
+/* RTL Support for Urdu */
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .navbar {
+  text-align: right;
+}
+
+html[dir="rtl"] .navbar__items--right {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+html[dir="rtl"] .navbar__items--left {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+html[dir="rtl"] .menu {
+  text-align: right;
+}
+
+html[dir="rtl"] .pagination-nav__link {
+  text-align: right;
+}
+
+/* Urdu font support */
+.urdu-text {
+  font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Urdu Typesetting", "Nafees Web Naskh", serif !important;
+  direction: rtl;
+  text-align: right;
+}

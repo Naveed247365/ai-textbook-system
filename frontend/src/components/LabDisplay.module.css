@@ -1,0 +1,37 @@
+.labCard {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-button-border-radius);
+  padding: 1.5rem;
+}
+
+.taskDescription {
+  margin-bottom: 0.5rem;
+}
+
+.hintText {
+  font-style: italic;
+  color: var(--ifm-color-secondary);
+  margin-bottom: 1rem;
+}
+
+.codeEditor {
+  width: 100%;
+  min-height: 200px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-family: var(--ifm-font-family-monospace);
+  background-color: var(--ifm-code-background);
+  border-radius: var(--ifm-button-border-radius);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  padding: 0.5rem;
+}
+
+.labButton {
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
+.submissionResult {
+  margin-top: 1.5rem;
+}
