@@ -4,7 +4,7 @@ FROM python:3.10-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV PYTHONPATH=/app
+ENV PYTHONPATH=/app:/app/backend
 
 # Set work directory
 WORKDIR /app
@@ -24,8 +24,8 @@ RUN mkdir -p /app/backend && \
     pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r /app/backend/requirements-deploy.txt
 
-# Copy only the backend source (not the entire project)
-COPY backend/src ./backend/src
+# Copy the entire backend directory to maintain proper structure
+COPY backend ./backend
 
 # Copy the startup scripts
 COPY start_server.py /app/start_server.py

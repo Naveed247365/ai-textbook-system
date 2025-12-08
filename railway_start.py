@@ -5,8 +5,23 @@ Railway-specific startup script
 import os
 import sys
 import logging
-from backend.src.main import app
 import uvicorn
+
+# Add the project root to the Python path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+# Import the app after setting up the path
+try:
+    from backend.src.main import app
+    logging.info("Successfully imported app from backend.src.main")
+except ImportError as e:
+    logging.error(f"Failed to import app: {e}")
+    # Try alternative import
+    import sys
+    import os
+    sys.path.append(os.path.join(os.path.dirname(__file__), 'backend'))
+    from src.main import app
+    logging.info("Successfully imported app from src.main")
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -27,5 +42,5 @@ if __name__ == "__main__":
         reload=False,
         log_level="info",
         access_log=True,
-        use_colors=True
+        use_colors=False  # Disable colors for Railway logs
     )
