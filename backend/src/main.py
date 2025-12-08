@@ -13,6 +13,9 @@ from src.rag_service import RAGService
 # Import auth utilities to ensure JWT dependencies are available
 from src.auth_utils import SECRET_KEY, ALGORITHM
 
+# Import translation cache to ensure it's available for initialization
+from src.translation_service import translation_cache
+
 # Initialize RAG service but without loading heavy models
 rag_service = RAGService()
 
