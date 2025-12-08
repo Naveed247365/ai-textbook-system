@@ -15,7 +15,8 @@
       "Bash(pip3 install --break-system-packages qdrant-client)",
       "Bash(pip3 install --break-system-packages transformers torch)",
       "Bash(chmod +x deploy-to-railway.sh)",
-      "Bash(chmod +x test-api-endpoints.sh)"
+      "Bash(chmod +x test-api-endpoints.sh)",
+      "Bash(cat -A mcp-config.json)"
     ],
     "deny": [],
     "ask": []
