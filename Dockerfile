@@ -31,8 +31,8 @@ COPY backend ./backend
 COPY start_server.py /app/start_server.py
 COPY railway_start.py /app/railway_start.py
 
-# Expose port
-EXPOSE $PORT
+# Expose port - Railway will override this with the PORT environment variable
+EXPOSE 8000
 
 # Create a simple shell script to run the application
 RUN echo '#!/bin/bash\nset -e\npython /app/railway_start.py' > /app/start.sh && chmod +x /app/start.sh
